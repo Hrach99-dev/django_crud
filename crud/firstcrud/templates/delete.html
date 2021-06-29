@@ -1,0 +1,27 @@
+{% extends 'base.html'%}
+
+{% block title %} Home Page {% endblock %}
+
+
+{% block content %}
+
+    <div class="col">
+        <div class="h-100 p-5 bg-light border rounded-3 text-center">
+            <h3>Delete User</h3>
+            <form method="POST">
+                {% csrf_token %}
+                {{ form.id }} <br>
+                <input class="w-25 mt-3 btn btn-outline-primary " type="submit" value="Create">
+            </form>
+            
+            {% if users %}
+                <p class="mt-3"> All Users</p>            
+                {% for i in users%}
+                    <p>{{i.name}} {{i.surname}} id is {{i.pk}}</p>
+                {% endfor %}
+                
+            {% endif %}
+        </div>
+    </div>
+    
+{% endblock %}
